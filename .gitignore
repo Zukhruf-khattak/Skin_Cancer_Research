@@ -1,0 +1,21 @@
+# Ignore word documents
+*.docx
+*.doc
+~$*.docx
+
+# Ignore text dumps
+*_dump.txt
+*dump_utf8.txt
+
+# Ignore trash
+_TRASH/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Ignore large datasets and notebooks
+data/
+*.zip
+*.csv
+*.ipynb

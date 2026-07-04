@@ -1,0 +1,36 @@
+HOW TO RUN THE KAGGLE PIPELINE
+==============================
+This guide explains how to run the Stage 1 and Stage 2 models on Kaggle, utilizing the ISIC 2019 dataset and the new advanced augmentation strategy for handling data imbalance.
+
+STEP 1: SETUP YOUR KAGGLE ENVIRONMENT
+-------------------------------------
+1. Go to kaggle.com and click "Create -> New Notebook".
+2. Turn on the GPU: Go to the right side panel -> "Session Options" -> "Accelerator" -> Select "GPU T4 x2" (or P100/T4).
+3. Add the Dataset: Click "Add Data" on the right panel, search for "ISIC 2019", and add the dataset. This will make it available at `../input/isic-2019/`.
+
+STEP 2: RUN STAGE 1 (BINARY CLASSIFICATION)
+-------------------------------------------
+1. Upload `01_Stage1_Binary_Classification_Ensemble.ipynb` to your Kaggle Notebook via "File -> Import Notebook".
+2. Update the data paths in the notebook to point to the ISIC 2019 dataset (`../input/...`).
+3. Click "Run All" (or "Run -> Run All").
+4. The notebook will automatically:
+   - Load the 5 models (ResNet50, EfficientNet-B0, MobileNetV2, ConvNeXt, ViT) with pretrained weights.
+   - Modify them for binary classification (Benign vs Malignant).
+   - Train them and save the best weights as `.pth` files in your Kaggle output directory.
+
+STEP 3: RUN STAGE 2 (MULTI-CLASS + IMBALANCE HANDLING)
+------------------------------------------------------
+1. Create a NEW Kaggle Notebook. Turn on the GPU and add the ISIC 2019 dataset just like in Step 1.
+2. Upload `02_Stage2_MultiClass_Imbalance_Handled.ipynb` via "File -> Import Notebook".
+3. Update the data paths in the notebook to point to the ISIC 2019 dataset.
+4. Click "Run All".
+5. The notebook will automatically:
+   - Load the 5 models from scratch (no pretrained weights).
+   - Apply Focal Loss to penalize misclassifications on minority classes (e.g., SCC, BCC).
+   - Apply MixUp augmentation during the training loop to create mathematically blended images on the fly, preventing overfitting.
+   - Train the models on the multi-class subtypes and save the weights.
+
+STEP 4: SAVING YOUR RESULTS
+---------------------------
+When training is finished, click the "Save Version" button in the top right corner. Select "Save & Run All (Commit)".
+This runs the notebook from start to finish in the background. Once it finishes, you can go to the notebook's viewer page and download the trained `.pth` weights from the "Output" section!
