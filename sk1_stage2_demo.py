@@ -299,12 +299,12 @@ st.markdown(nav_html, unsafe_allow_html=True)
 # ─────────────────────────────────────────────────────────────
 # Stage 1 (SK1 folder) — from model_metrics_summary.csv
 S1 = {
-    "ResNet50":        {"Accuracy":92.76,"Precision":90.80,"Sensitivity":89.44,"F1":0.9011,"AUC":0.9675,"TP":1317,"TN":2222,"FP":177,"FN":84},
-    "EfficientNet-B0": {"Accuracy":92.87,"Precision":88.38,"Sensitivity":92.86,"F1":0.9057,"AUC":0.9713,"TP":1315,"TN":2214,"FP":185,"FN":86},
-    "MobileNetV2":     {"Accuracy":91.89,"Precision":87.61,"Sensitivity":90.86,"F1":0.8921,"AUC":0.9680,"TP":1284,"TN":2213,"FP":186,"FN":117},
-    "ConvNeXt-Tiny":   {"Accuracy":93.18,"Precision":87.71,"Sensitivity":94.79,"F1":0.9111,"AUC":0.9746,"TP":1314,"TN":2229,"FP":170,"FN":87},
-    "Swin-Tiny":       {"Accuracy":93.55,"Precision":88.79,"Sensitivity":94.43,"F1":0.9153,"AUC":0.9734,"TP":1316,"TN":2216,"FP":183,"FN":85},
-    "⭐ Ensemble":     {"Accuracy":94.34,"Precision":91.12,"Sensitivity":93.79,"F1":0.9244,"AUC":0.9845,"TP":1314,"TN":2271,"FP":128,"FN":87},
+    "ResNet50":        {"Accuracy":93.13,"Precision":88.15,"Sensitivity":94.00,"F1":0.9098,"AUC":0.9691,"TP":1317,"TN":2222,"FP":177,"FN":84},
+    "EfficientNet-B0": {"Accuracy":92.87,"Precision":87.67,"Sensitivity":93.86,"F1":0.9066,"AUC":0.9751,"TP":1315,"TN":2214,"FP":185,"FN":86},
+    "MobileNetV2":     {"Accuracy":92.03,"Precision":87.35,"Sensitivity":91.65,"F1":0.8945,"AUC":0.9676,"TP":1284,"TN":2213,"FP":186,"FN":117},
+    "ConvNeXt-Tiny":   {"Accuracy":93.24,"Precision":88.54,"Sensitivity":93.79,"F1":0.9109,"AUC":0.9771,"TP":1314,"TN":2229,"FP":170,"FN":87},
+    "Swin-Tiny":       {"Accuracy":92.95,"Precision":87.79,"Sensitivity":93.93,"F1":0.9076,"AUC":0.9749,"TP":1316,"TN":2216,"FP":183,"FN":85},
+    "⭐ Ensemble":     {"Accuracy":94.50,"Precision":90.93,"Sensitivity":94.50,"F1":0.9268,"AUC":0.9863,"TP":1324,"TN":2267,"FP":132,"FN":77},
 }
 
 # Stage 2 (Final Stage 2 folder) — from ultimate_summary_metrics.csv
@@ -509,7 +509,7 @@ if page == "Overview":
     st.markdown('<div class="sec">⭐ Pipeline Headline Numbers</div>', unsafe_allow_html=True)
     e1, e2, e3, e4 = st.columns(4)
     kpi_data = [
-        (e1, "94.34%", "Stage 1 Accuracy",    "▲ SK1 Ensemble",        "kpi-val"),
+        (e1, "94.50%", "Stage 1 Accuracy",    "▲ SK1 Ensemble",        "kpi-val"),
         (e2, "98.63%", "Stage 1 AUC",         "Near-perfect triage",   "kpi-val"),
         (e3, "85.58%", "Stage 2 Accuracy",    "▲ Final Stage 2",       "kpi-val-amber"),
         (e4, "95.79%", "SCC Recall (Stage 2)","Best per-class recall",  "kpi-val-rose"),
@@ -594,11 +594,11 @@ elif page == "Stage 1 (SK1)":
     cm_col, interp_col = st.columns([1, 1])
     with cm_col:
         fig_cm = go.Figure(go.Heatmap(
-            z=[[2271, 128], [87, 1314]],
+            z=[[2267, 132], [77, 1324]],
             x=["Predicted Benign", "Predicted Malignant"],
             y=["True Benign", "True Malignant"],
             colorscale=[[0,"#07090f"],[0.35,"#1e1b4b"],[1,"#6366f1"]],
-            text=[["2271","128"],["87","1314"]],
+            text=[["2267","132"],["77","1324"]],
             texttemplate="%{text}",
             textfont=dict(size=24, color="white", family="Space Grotesk"),
             showscale=False,
@@ -615,7 +615,7 @@ elif page == "Stage 1 (SK1)":
             <b style="color:#10b981;">True Negatives: 2,267</b> — Benign correctly cleared<br><br>
             <b style="color:#f59e0b;">False Positives: 132</b> — Unnecessary referrals (safe side)<br><br>
             <b style="color:#ef4444;">False Negatives: 77</b> — Missed malignancies (critical!)<br><br>
-            <b style="color:#6366f1;">True Positives: 1,314</b> — Cancers correctly detected<br><br>
+            <b style="color:#6366f1;">True Positives: 1,324</b> — Cancers correctly detected<br><br>
             <small style="color:#64748b;">
               FNR = 5.50% &nbsp;|&nbsp; FPR = 5.50%<br>
               Ensemble FN (77) is 34% lower than best solo model MobileNetV2 (117 FN).
