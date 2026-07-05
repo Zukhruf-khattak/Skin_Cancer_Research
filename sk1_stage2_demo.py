@@ -309,11 +309,11 @@ S1 = {
 
 # Stage 2 (Final Stage 2 folder) — from ultimate_summary_metrics.csv
 S2 = {
-    "ResNet50":        {"Accuracy":80.48,"MacroPrec":76.65,"MacroSens":81.88,"MacroF1":0.7814,"AUC":0.9481,"MEL":81.67,"BCC":77.33,"SCC":91.58,"AK":76.92,"CPS":0.8472},
-    "EfficientNet-B0": {"Accuracy":83.39,"MacroPrec":79.99,"MacroSens":83.34,"MacroF1":0.8133,"AUC":0.9615,"MEL":86.00,"BCC":82.00,"SCC":88.42,"AK":76.92,"CPS":0.8566},
+    "ResNet50":        {"Accuracy":80.48,"MacroPrec":76.65,"MacroSens":81.88,"MacroF1":0.7814,"AUC":0.9480,"MEL":81.67,"BCC":77.33,"SCC":91.57,"AK":76.92,"CPS":0.8472},
+    "EfficientNet-B0": {"Accuracy":83.39,"MacroPrec":79.99,"MacroSens":83.34,"MacroF1":0.8132,"AUC":0.9615,"MEL":86.00,"BCC":82.00,"SCC":88.42,"AK":76.92,"CPS":0.8566},
     "MobileNetV2":     {"Accuracy":80.24,"MacroPrec":76.18,"MacroSens":80.44,"MacroF1":0.7764,"AUC":0.9506,"MEL":82.33,"BCC":79.00,"SCC":87.37,"AK":73.08,"CPS":0.8309},
-    "ConvNeXt-Tiny":   {"Accuracy":80.36,"MacroPrec":76.47,"MacroSens":81.90,"MacroF1":0.7789,"AUC":0.9549,"MEL":80.67,"BCC":77.67,"SCC":91.58,"AK":77.69,"CPS":0.8443},
-    "Swin-Tiny":       {"Accuracy":82.91,"MacroPrec":79.03,"MacroSens":84.41,"MacroF1":0.8063,"AUC":0.9617,"MEL":83.00,"BCC":80.00,"SCC":91.58,"AK":83.08,"CPS":0.8614},
+    "ConvNeXt-Tiny":   {"Accuracy":80.36,"MacroPrec":76.47,"MacroSens":81.90,"MacroF1":0.7789,"AUC":0.9549,"MEL":80.67,"BCC":77.67,"SCC":91.57,"AK":77.69,"CPS":0.8443},
+    "Swin-Tiny":       {"Accuracy":82.91,"MacroPrec":79.03,"MacroSens":84.41,"MacroF1":0.8063,"AUC":0.9617,"MEL":83.00,"BCC":80.00,"SCC":91.57,"AK":83.08,"CPS":0.8614},
     "⭐ Ensemble":     {"Accuracy":85.58,"MacroPrec":81.68,"MacroSens":86.42,"MacroF1":0.8332,"AUC":0.9738,"MEL":85.00,"BCC":85.67,"SCC":95.79,"AK":79.23,"CPS":0.8881},
 }
 
